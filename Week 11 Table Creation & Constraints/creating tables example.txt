@@ -1,0 +1,31 @@
+create table silly
+(fname varchar2(15), lname varchar2(15), position varchar2(15), hiredate date, deptno number(3));
+
+create table puddy
+(deptno number(3), dname varchar2(12), city varchar2(15));
+
+alter table puddy
+add state varchar2(3);
+
+alter table puddy
+modify state varchar2(10);
+
+rename puddy to caulking;
+
+drop table silly;
+
+drop table caulking;
+
+create table silly
+(fname varchar2(15), lname varchar2(15), position varchar2(15), hiredate date,
+ deptno number(3) constraint silly_deptno_pk primary key);
+
+create table puddy
+(deptno number(3), dname varchar2(12), city varchar2(15),
+ constraint puddy_deptno_fk foreign key(deptno) references silly(deptno));
+ 
+drop table silly;
+
+drop table puddy;
+
+drop table silly;
